@@ -3,7 +3,7 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 import CartItem from "./CartItem";
-import { Box, Button, Container, Divider, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, IconButton, Stack, Typography } from "@mui/material";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
