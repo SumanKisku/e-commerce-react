@@ -2,6 +2,10 @@
     color-scheme: light dark;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
 }
@@ -10,3 +14,22 @@ a {
     text-decoration: none;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle  werw r */
+::-webkit-scrollbar-thumb {
+  background: #1976d2;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1d4ed8;
+}

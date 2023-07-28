@@ -4,7 +4,6 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../contexts/CartContext";
 import { toast } from "react-hot-toast";
 
-
 const addToCart = (dispatch, productId) => {
     dispatch({ type: "addToCart", id: productId });
     toast.success("Item added to cart", {
@@ -23,8 +22,6 @@ const addToCart = (dispatch, productId) => {
 
 const ProductCard = ({ prod }) => {
     const { dispatch } = useContext(CartContext);
-
-
 
     return (
         <Grid key={prod.id} item xs={12} sm={4} md={3}>
