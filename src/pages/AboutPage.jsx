@@ -1,7 +1,7 @@
 
 const AboutPage = () => {
     return (
-        <div style={{ marginTop: "100px" }}>AboutPage</div>
+        <div className="mt-24 mx-10">AboutPage</div>
     )
 }
 
