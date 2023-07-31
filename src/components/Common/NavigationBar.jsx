@@ -17,6 +17,7 @@ import Button from '@mui/material/Button';
 import ButtonBase from '@mui/material/ButtonBase';
 import { Link } from "react-router-dom"; 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { CartContext } from "../../contexts/CartContext";
 import { useContext } from "react";
 
@@ -92,9 +93,10 @@ export default function DrawerAppBar(props) {
                             </Link>
                         ))}
                     </Box>
-                    <ButtonBase sx={{ marginLeft: 'auto', position: 'relative', padding: "4px" }}>
+                    <Box className="ml-auto">
+                      <ButtonBase className="relative">
                         <Link to="/cart">
-                            <Box>
+                            <Box className="p-1 m-1">
                                 <ShoppingCartIcon sx={{color: '#fff'}} />
                                 <Box
                                     sx={{
@@ -103,8 +105,8 @@ export default function DrawerAppBar(props) {
                                         width: '15px',
                                         padding: '2px',
                                         position: 'absolute',
-                                        bottom: '0',
-                                        right: '0',
+                                        bottom: '4px',
+                                        right: '4px',
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
@@ -118,6 +120,31 @@ export default function DrawerAppBar(props) {
                             </Box>
                         </Link>
                     </ButtonBase>
+                    <ButtonBase className="relative">
+              <Box className="p-1 m-1">
+                     <AccountCircleIcon /> 
+                                <Box
+                                    sx={{
+                                        height: '15px',
+                                        width: '15px',
+                                        padding: '2px',
+                                        position: 'absolute',
+                                        bottom: '4px',
+                                        right: '4px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center',
+                                        fontSize: '10px',
+                                        background: '#ff0000',
+                                        borderRadius: '50%',
+                                        fontWeight: 'bold',
+                                    }}>
+                                    {""}
+                                </Box>
+
+                     </Box>
+                    </ButtonBase>
+                    </Box>
                 </Toolbar>
             </AppBar>
             <Box component="nav">
