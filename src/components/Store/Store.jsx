@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material";
-import { store } from '../../store'
+import { store } from '../../../store'
 import ProductCard from "./ProductCard";
 
 const allProducts = [...store];

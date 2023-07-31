@@ -1,4 +1,4 @@
-import Store from "../components/Store"
+import Store from "../components/Store/Store"
 
 const containerStyle = {
     margin: "100px 40px"

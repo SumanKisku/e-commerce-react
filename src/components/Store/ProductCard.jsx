@@ -1,7 +1,7 @@
 import { Box, Button, Card, CardContent, CardMedia, Grid, Rating, Typography } from "@mui/material"
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../contexts/CartContext";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
 import { toast } from "react-hot-toast";
 
 const addToCart = (dispatch, productId) => {

@@ -17,7 +17,7 @@ import Button from '@mui/material/Button';
 import ButtonBase from '@mui/material/ButtonBase';
 import { Link } from "react-router-dom"; 
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { CartContext } from "../contexts/CartContext";
+import { CartContext } from "../../contexts/CartContext";
 import { useContext } from "react";
 
 const drawerWidth = 240;
