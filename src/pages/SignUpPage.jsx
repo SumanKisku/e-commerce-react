@@ -1,9 +1,13 @@
 
 import { useState } from 'react';
 import { TextField, Button } from '@mui/material';
+import axios from 'axios';
+
+const port = 3001;
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
+    name: '',
     username: '',
     email: '',
     password: '',
@@ -20,7 +24,7 @@ const SignUpPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
 
@@ -28,6 +32,10 @@ const SignUpPage = () => {
     if (formData.username.trim() === '') {
       newErrors.username = 'Username is required';
     }
+    if (formData.name.trim() === '') {
+      newErrors.name = 'Name is required';
+    }
+
     if (formData.email.trim() === '') {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -48,7 +56,12 @@ const SignUpPage = () => {
 
     // If there are no errors, you can submit the form to your backend or handle the success case here
     if (Object.keys(newErrors).length === 0) {
-      console.log('Form submitted successfully:', formData);
+      try {
+        const response = await axios.post(`http://localhost:${port}/signup`, formData);
+        console.log(response);
+      } catch(error) {
+        console.log(error);
+      }
     }
   };
 
@@ -57,6 +70,19 @@ const SignUpPage = () => {
       <div className="mx-auto mt-20 w-96">
         <h2 className="mb-4 text-2xl font-semibold">Sign Up</h2>
         <form onSubmit={handleSubmit} method="post">
+          <div className="mb-4">
+            <TextField
+              label="Name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              fullWidth
+              variant="outlined"
+              error={!!errors.name}
+              helperText={errors.name}
+            />
+          </div>
+
           <div className="mb-4">
             <TextField
               label="Username"
