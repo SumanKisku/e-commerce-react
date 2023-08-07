@@ -122,6 +122,7 @@ export default function DrawerAppBar(props) {
                     </ButtonBase>
                     <ButtonBase className="relative">
               <Box className="p-1 m-1">
+                <Link to="/signup">
                      <AccountCircleIcon /> 
                                 <Box
                                     sx={{
@@ -142,6 +143,7 @@ export default function DrawerAppBar(props) {
                                     {""}
                                 </Box>
 
+                     </Link>
                      </Box>
                     </ButtonBase>
                     </Box>

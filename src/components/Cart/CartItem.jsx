@@ -1,7 +1,7 @@
 import { AddCircleOutline, DeleteOutline, RemoveCircleOutline } from "@mui/icons-material"
 import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from "@mui/material"
 
-const CartItem = ({ item, increaseQtn, decreaseQtn, deleteFromCart, dispatch }) => {
+const CartItem = ({ item, increaseqnt, decreaseqnt, deleteFromCart, dispatch }) => {
     return (
         <Card sx={{ marginBottom: '20px' }} variant="outlined">
 
@@ -17,14 +17,14 @@ const CartItem = ({ item, increaseQtn, decreaseQtn, deleteFromCart, dispatch }) 
                 <Typography gutterBottom variant="h6" component="div">Price: {item.price}</Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                {item.qtn > 1 ?
+                {item.qnt > 1 ?
                     <>
                         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <IconButton onClick={() => decreaseQtn(dispatch, item.id)} aria-label="Decrease">
+                            <IconButton onClick={() => decreaseqnt(dispatch, item.id)} aria-label="Decrease">
                                 <RemoveCircleOutline sx={{ fontSize: '42px', color: '#eab308' }} />
                             </IconButton>
-                            <Typography>{item.qtn}</Typography>
-                            <IconButton onClick={() => increaseQtn(dispatch, item.id)} aria-label="Increase">
+                            <Typography>{item.qnt}</Typography>
+                            <IconButton onClick={() => increaseqnt(dispatch, item.id)} aria-label="Increase">
                                 <AddCircleOutline sx={{ fontSize: '42px', color: '#84cc16' }} />
                             </IconButton>
                         </Box>
@@ -37,8 +37,8 @@ const CartItem = ({ item, increaseQtn, decreaseQtn, deleteFromCart, dispatch }) 
                             <IconButton onClick={() => deleteFromCart(dispatch, item.id)} aria-label="Delete">
                                 <DeleteOutline sx={{ fontSize: '42px', color: 'red' }} />
                             </IconButton>
-                            <Typography>{item.qtn}</Typography>
-                            <IconButton onClick={() => increaseQtn(dispatch, item.id)} aria-label="Increase">
+                            <Typography>{item.qnt}</Typography>
+                            <IconButton onClick={() => increaseqnt(dispatch, item.id)} aria-label="Increase">
                                 <AddCircleOutline sx={{ fontSize: '42px', color: '#84cc16' }} />
                             </IconButton>
                         </Box>

@@ -17,30 +17,27 @@ const reducer = (state, action) => {
     switch (action.type) {
         case "addToCart":
             // eslint-disable-next-line no-case-declarations
-            let itemToAdd = allProducts.find((prod) => prod.id === action.id);
-            if (!itemToAdd) {
-                // If the product is not found, return the current state without any changes.
-                saveCartInLS(state);
-                return state;
-            }
+            let itemToAdd = {...allProducts.find((prod) => prod.id === action.id)};
 
             // eslint-disable-next-line no-case-declarations
             let itemAlreadyInCart = state.find((prod) => prod.id === action.id)
 
             if (itemAlreadyInCart) {
-                itemAlreadyInCart["qtn"] = itemToAdd["qtn"] + 1;
+                // if item alreay in cart just increase the qnt
+                itemAlreadyInCart["qnt"] = Number(itemToAdd["qnt"] + 1); // for some weired reason, sometimes there was NaN in quantity.
                 saveCartInLS([...state]);
                 return [...state];
             } else {
-                itemToAdd["qtn"] = 1;
+                // Initialize qnt with 1
+                itemToAdd["qnt"] = 1;
             }
-            // Return a new state with the itemToAdd added to the cart array.
+            // Save and Return a new state with the itemToAdd added to the cart array.
             saveCartInLS([...state, itemToAdd]);
             return [...state, itemToAdd];
         case "deleteFromCart":
             state.forEach((prod) => {
                 if (prod.id == action.id) {
-                    prod.qtn = 0;
+                    prod.qnt = 0;
                 }
             })
             // eslint-disable-next-line no-case-declarations
@@ -60,18 +57,18 @@ const reducer = (state, action) => {
             });
             saveCartInLS([...afterDelete]);
             return [...afterDelete];
-        case "increaseQtn":
-            let itemNeedToIncreaseQtn = state.find((prod) => prod.id === action.id);
-            itemNeedToIncreaseQtn["qtn"] += 1;
+        case "increaseqnt":
+            let itemNeedToIncreaseqnt = state.find((prod) => prod.id === action.id);
+            itemNeedToIncreaseqnt["qnt"] += 1;
             saveCartInLS([...state]);
             return [...state];
-        case "decreaseQtn":
-            let itemNeedToDecreaseQtn = state.find((prod) => prod.id === action.id);
-            if (itemNeedToDecreaseQtn["qtn"] > 0) {
-                itemNeedToDecreaseQtn["qtn"] = itemNeedToDecreaseQtn["qtn"] - 1;
+        case "decreaseqnt":
+            let itemNeedToDecreaseqnt = state.find((prod) => prod.id === action.id);
+            if (itemNeedToDecreaseqnt["qnt"] > 0) {
+                itemNeedToDecreaseqnt["qnt"] = itemNeedToDecreaseqnt["qnt"] - 1;
             }
 
-            if (itemNeedToDecreaseQtn["qtn"] === 0) {
+            if (itemNeedToDecreaseqnt["qnt"] === 0) {
                 // eslint-disable-next-line no-case-declarations
                 let afterDelete = state.filter((prod) => {
                     return prod.id != action.id;
