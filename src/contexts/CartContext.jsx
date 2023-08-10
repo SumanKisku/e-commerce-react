@@ -104,7 +104,7 @@ const reducer = (state, action) => {
 
 let initialCartState = [];
 if (localStorage.getItem("cart")) {
-  initialCartState = JSON.parse(localStorage.getItem("cart"));
+  initialCartState = [...JSON.parse(localStorage.getItem("cart"))];
 }
 
 export const CartContextProvider = ({ children }) => {
