@@ -6,6 +6,7 @@ import CartPage from "./pages/CartPage"
 import HomePage from "./pages/HomePage"
 import SignUpPage from "./pages/SignUpPage"
 import { Route, Routes } from "react-router-dom"
+import PaymentSuccessfulPage from "./pages/PaymentSuccessful"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/paymentsuccess" element={<PaymentSuccessfulPage />} />
         <Route path="/product/:id" element={<ProductPage />} />
       </Routes>
       <Toaster position="top-center" />

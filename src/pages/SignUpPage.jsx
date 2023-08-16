@@ -67,10 +67,10 @@ const SignUpPage = () => {
 
   return (
     <>
-      <div className="mx-auto mt-20 w-96">
-        <h2 className="mb-4 text-2xl font-semibold">Sign Up</h2>
-        <form onSubmit={handleSubmit} method="post">
-          <div className="mb-4">
+      <div className="mx-auto mt-20 w-full md:w-96 px-4">
+        <h2 className="mb-4 text-2xl font-semibold text-center">Sign Up</h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
             <TextField
               label="Name"
               name="name"
@@ -82,8 +82,7 @@ const SignUpPage = () => {
               helperText={errors.name}
             />
           </div>
-
-          <div className="mb-4">
+          <div>
             <TextField
               label="Username"
               name="username"
@@ -95,7 +94,7 @@ const SignUpPage = () => {
               helperText={errors.username}
             />
           </div>
-          <div className="mb-4">
+          <div>
             <TextField
               label="Email"
               name="email"
@@ -107,7 +106,7 @@ const SignUpPage = () => {
               helperText={errors.email}
             />
           </div>
-          <div className="mb-4">
+          <div>
             <TextField
               label="Password"
               name="password"
@@ -120,7 +119,7 @@ const SignUpPage = () => {
               helperText={errors.password}
             />
           </div>
-          <div className="mb-4">
+          <div>
             <TextField
               label="Confirm Password"
               name="confirmPassword"
@@ -133,9 +132,11 @@ const SignUpPage = () => {
               helperText={errors.confirmPassword}
             />
           </div>
-          <Button type="submit" variant="contained" color="primary">
-            Sign Up
-          </Button>
+          <div className="flex justify-center">
+            <Button type="submit" variant="contained" color="primary">
+              Sign Up
+            </Button>
+          </div>
         </form>
       </div>
     </>
