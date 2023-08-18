@@ -3,7 +3,7 @@
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import CartItem from "./CartItem";
-import { Box, Button, Container, IconButton, Stack, Typography } from "@mui/material";
+import { Box, Container, IconButton, Stack, Typography } from "@mui/material";
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Link } from "react-router-dom";
 import { toast } from "react-hot-toast";
@@ -13,11 +13,11 @@ const deleteFromCart = (dispatch, productId) => {
     dispatch({ type: "deleteFromCart", id: productId });
 }
 
-const increaseQtn = (dispatch, productId) => {
-    dispatch({ type: "increaseQtn", id: productId });
+const increaseqnt = (dispatch, productId) => {
+    dispatch({ type: "increaseqnt", id: productId });
 }
-const decreaseQtn = (dispatch, productId) => {
-    dispatch({ type: "decreaseQtn", id: productId });
+const decreaseqnt = (dispatch, productId) => {
+    dispatch({ type: "decreaseqnt", id: productId });
 }
 
 const clearCart = (dispatch) => {
@@ -36,27 +36,13 @@ const clearCart = (dispatch) => {
 }
 
 const calSubTotal = (cart) => {
-    return cart.reduce((total, item) => item.price * item.qtn + total, 0)
+    return cart.reduce((total, item) => item.price * item.qnt + total, 0)
 }
 
 const caltotalItemsInCart = (cart) => {
-    return cart.reduce((total, item) => item.qtn + total, 0)
+    return cart.reduce((total, item) => item.qnt + total, 0)
 }
 
-const handlePay = () => {
-    toast('Will implement later', {
-        icon: '⚠️',
-        style: {
-            border: '1px solid #1976d2',
-            padding: '16px',
-            color: '#1976d2',
-        },
-        iconTheme: {
-            primary: 'yellow',
-            secondary: '#FFFAEE',
-        },
-    });
-}
 
 const Cart = () => {
 
@@ -74,7 +60,7 @@ const Cart = () => {
             <div style={{ margin: '100px 0' }}>
                 <Container maxWidth="sm">
                     {cart.length ? cart.map((item) => {
-                        return <CartItem key={item.id} item={item} deleteFromCart={deleteFromCart} increaseQtn={increaseQtn} decreaseQtn={decreaseQtn} dispatch={dispatch} />
+                        return <CartItem key={item.id} item={item} deleteFromCart={deleteFromCart} increaseqnt={increaseqnt} decreaseqnt={decreaseqnt} dispatch={dispatch} />
                     }) : "Oh no, your cart is empty! 😢 Don't worry, we have plenty of amazing products for you to choose from."}
                     <Box>
                         {cart.length ?
