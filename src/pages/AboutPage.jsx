@@ -1,20 +1,20 @@
 
 const AboutPage = () => {
   return (
-    <div style={{ margin: "100px 20px" }}>
-      <div class="bg-gray-100 p-8">
-        <h1 class="text-2xl font-semibold mb-4">About Section for E-Commerce Project</h1>
+    <div className="mx-2.5 mt-24">
+      <div className="p-8 bg-gray-100">
+        <h1 className="mb-4 text-2xl font-semibold">About Section for E-Commerce Project</h1>
         <p>Welcome to my E-Commerce project</p>
 
-        <h2 class="text-lg font-semibold mt-6">My Technology Stack:</h2>
-        <ul class="list-disc pl-6 mt-2">
+        <h2 className="mt-6 text-lg font-semibold">My Technology Stack:</h2>
+        <ul className="pl-6 mt-2 list-disc">
           <li>React</li>
           <li>Material-UI (MUI)</li>
           <li>Tailwind CSS:</li>
         </ul>
 
-        <h2 class="text-lg font-semibold mt-6">Things I have learned while doing this project</h2>
-        <ul class="list-disc pl-6 mt-2">
+        <h2 className="mt-6 text-lg font-semibold">Things I have learned while doing this project</h2>
+        <ul className="pl-6 mt-2 list-disc">
           <li>How to use Context API</li>
           <li>How to use useReducer</li>
           <li>How to use react-router-dom for creating routes</li>
