@@ -1,7 +1,7 @@
 
 const AboutPage = () => {
   return (
-    <div class="mx-2.5 my-24" style={{ margin: "100px 20px" }}>
+    <div class="mx-2.5 my-24">
       <div class="bg-gray-100 p-8">
         <h1 class="text-2xl font-semibold mb-4">About Section for E-Commerce Project</h1>
         <p>Welcome to my E-Commerce project</p>
