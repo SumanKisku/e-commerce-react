@@ -43,20 +43,6 @@ const caltotalItemsInCart = (cart) => {
     return cart.reduce((total, item) => item.qnt + total, 0)
 }
 
-const handlePay = () => {
-    toast('Will implement later', {
-        icon: '⚠️',
-        style: {
-            border: '1px solid #1976d2',
-            padding: '16px',
-            color: '#1976d2',
-        },
-        iconTheme: {
-            primary: 'yellow',
-            secondary: '#FFFAEE',
-        },
-    });
-}
 
 const Cart = () => {
 

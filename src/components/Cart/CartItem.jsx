@@ -1,5 +1,6 @@
 import { AddCircleOutline, DeleteOutline, RemoveCircleOutline } from "@mui/icons-material"
 import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from "@mui/material"
+import PropTypes from "prop-types"
 
 const CartItem = ({ item, increaseqnt, decreaseqnt, deleteFromCart, dispatch }) => {
     return (
@@ -49,6 +50,14 @@ const CartItem = ({ item, increaseqnt, decreaseqnt, deleteFromCart, dispatch }) 
             </CardActions>
         </Card>
     )
+}
+
+CartItem.propTypes = {
+    item: PropTypes.object,
+    increaseqnt: PropTypes.func,
+    decreaseqnt: PropTypes.func,
+    deleteFromCart: PropTypes.func,
+    dispatch: PropTypes.func,
 }
 
 export default CartItem
