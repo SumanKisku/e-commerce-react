@@ -1,7 +1,9 @@
 
 import { useState } from 'react';
 import { TextField, Button } from '@mui/material';
+import { Link } from "react-router-dom";
 import axios from 'axios';
+import { toast } from "react-hot-toast";
 
 const port = 3001;
 
@@ -58,8 +60,15 @@ const SignUpPage = () => {
     if (Object.keys(newErrors).length === 0) {
       try {
         const response = await axios.post(`http://localhost:${port}/signup`, formData);
-        console.log(response);
-      } catch(error) {
+        const data = response.data;
+        if (data.code === "usernameExists") {
+          toast.error(data.msg);
+        } else if (data.code === "emailExists") {
+          toast.error(data.msg);
+        } else {
+          toast(data.msg);
+        }
+      } catch (error) {
         console.log(error);
       }
     }
@@ -67,7 +76,7 @@ const SignUpPage = () => {
 
   return (
     <>
-      <div className="mx-auto mt-20 w-full md:w-96 px-4">
+      <div className="w-full px-4 mx-auto mt-20 md:w-96">
         <h2 className="mb-4 text-2xl font-semibold text-center">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -138,6 +147,9 @@ const SignUpPage = () => {
             </Button>
           </div>
         </form>
+        <div>
+          <p className="mt-2 text-center">Already have an account? <Link to="/login" className="text-blue-700">Login</Link></p>
+        </div>
       </div>
     </>
   );
