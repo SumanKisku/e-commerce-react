@@ -62,11 +62,11 @@ const SignUpPage = () => {
         const response = await axios.post(`http://localhost:${port}/signup`, formData);
         const data = response.data;
         if (data.code === "usernameExists") {
-          toast.error(data.msg);
+          toast.error(data.message);
         } else if (data.code === "emailExists") {
-          toast.error(data.msg);
+          toast.error(data.message);
         } else {
-          toast(data.msg);
+          toast.success(data.message);
         }
       } catch (error) {
         console.log(error);
